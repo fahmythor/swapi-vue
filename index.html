@@ -1,0 +1,99 @@
+<!-- index.html -->
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Vue</title>
+	<!-- CSS -->
+
+	<!-- Material Design fonts -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Bootstrap Material Design -->
+	<link href="dist/css/bootstrap-material-design.css" rel="stylesheet">
+	<link href="dist/css/ripples.min.css" rel="stylesheet">
+
+	<link href="style.css" rel="stylesheet">
+	<link href="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <!-- navigation bar -->
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+		<div class="navbar-header">
+	    	<a class="navbar-brand"><i class="material-icons">face</i></i> Star Wars SQUADs</a>
+	  	</div>    	   
+    </div>
+  </div>
+
+  <!-- main body of our application -->
+  <div class="container">
+
+    <!-- add an squad form -->
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>Add an Character</h2>
+        </div>
+        <div id="apps" class="panel-body">		
+
+		<div class="form-group label-floating">
+			<label class="control-label" for="addon2">Star Wars Epic Char</label>
+			<div class="input-group">
+				<select id="s1" class="form-control" v-model="character">
+					<option value="" selected="selected">drop your char down...</option>
+					<option v-for="person in characters" :value="person" selected>{{ person.name }}</option>					
+				</select>
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-fab btn-fab-mini">
+						<i class="material-icons">functions</i>
+					</button>
+				</span>
+			</div>		    
+		</div>		
+
+			<hr/>
+			<div v-if="character">
+				<h3>{{ character.name }}</h3>
+				<p>Some stats about {{ character.name }}</p>
+				<ul>
+					<li><strong>Height:</strong> {{ character.height }}</li>
+					<li><strong>Mass:</strong> {{ character.mass }}</li>
+					<li><strong>Gender:</strong> {{ character.gender }}</li>
+					<li><strong>Hair Color:</strong> {{ character.hair_color }}</li>
+					<li><strong>Birth Year:</strong> {{ character.birth_year }}</li>
+					<li><strong>Species:</strong> {{ character.species }}</li>
+				</ul>
+			</div>        	
+        </div>
+
+      </div>
+    </div>
+
+    <!-- show the selected squad -->
+    <div class="col-sm-6">
+      <div class="list-group">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+  <script src="dist/js/material.min.js"></script>
+  <script src="dist/js/ripples.min.js"></script>
+  <script src="dist/js/vue.js"></script>
+  <script src="dist/js/vue-resource.js"></script>
+  <script src="main.js"></script>
+  
+</body>
+</html>
